@@ -13,7 +13,10 @@ class CreatePostsTable extends Migration
      */
     public function up()
     {
-        //
+        Schema::table('posts', function (Blueprint $table) {
+            $table->string('title',500) ->change();
+            $table->boolean('is_feature')->default(false)->after('content');
+                 });
     }
 
     /**
@@ -23,6 +26,8 @@ class CreatePostsTable extends Migration
      */
     public function down()
     {
+        Schema::table('posts', function (Blueprint $table) {
        //
+        });
     }
 }
